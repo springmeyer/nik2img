@@ -1,0 +1,32 @@
+<!-- http://spatialreference.org/ref/epsg/2163/ -->
+<Map srs="+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs" minimum-version="0.6.1" background-color="#8cb6d3">
+    <Style name="states_outlines">
+        <Rule>
+            <LineSymbolizer stroke-width="0.3"/></Rule>
+    </Style>
+    <Style name="states_shp_labels">
+        <Rule>
+            <TextSymbolizer name="[STATE_ABBR]" size="12" fill="#000000" face-name="DejaVu Sans Book"/>
+        </Rule>
+    </Style>
+    <Style name="states_shp_styles">
+        <Rule>
+            <Filter>([PERSONS]&lt;2000000)</Filter>
+            <PolygonSymbolizer fill="#6CAE4C"/></Rule>        
+        <Rule>
+            <Filter>(([PERSONS]&gt;2000000) and ([PERSONS]&lt;4000000))</Filter>
+            <PolygonSymbolizer fill="#3B7AB3"/></Rule>
+        <Rule>
+            <Filter>([PERSONS]&gt;4000000)</Filter>
+            <PolygonSymbolizer fill="#88000F"/></Rule>
+    </Style>
+    <Layer name="states" srs="+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs">
+        <StyleName>states_shp_styles</StyleName>
+        <StyleName>states_outlines</StyleName>
+        <StyleName>states_shp_labels</StyleName>
+        <Datasource>
+            <Parameter name="file">data/us_states_lambert.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+</Map>

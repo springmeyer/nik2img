@@ -1,0 +1,33 @@
+<!-- http://spatialreference.org/ref/epsg/2163/ -->
+<Map minimum-version="0.6.1" background-color="#8cb6d3" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+    <Style name="states_outlines">
+        <Rule>
+            <LineSymbolizer stroke-width="0.3"/></Rule>
+    </Style>
+    <Style name="states_shp_labels">
+        <Rule>
+            <TextSymbolizer name="[STATE_ABBR]" size="12" fill="#000000" face-name="DejaVu Sans Book"/>
+        </Rule>
+    </Style>
+    <Style name="states_shp_styles">
+        <Rule>
+            <Filter>([PERSONS]&lt;2000000)</Filter>
+            <PolygonSymbolizer fill="#6CAE4C"/></Rule>        
+        <Rule>
+            <Filter>(([PERSONS]&gt;2000000) and ([PERSONS]&lt;4000000))</Filter>
+            <PolygonSymbolizer fill="#3B7AB3"/></Rule>
+        <Rule>
+            <Filter>([PERSONS]&gt;4000000)</Filter>
+            <PolygonSymbolizer fill="#88000F"/></Rule>
+    </Style>
+    <Layer name="states" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+        <StyleName>states_shp_styles</StyleName>
+        <StyleName>states_outlines</StyleName>
+        <StyleName>states_shp_labels</StyleName>
+        <Datasource>
+            <Parameter name="base">data</Parameter>
+            <Parameter name="file">us_states_wgs84.shp</Parameter>
+            <Parameter name="type">shape</Parameter>
+        </Datasource>
+    </Layer>
+</Map>
