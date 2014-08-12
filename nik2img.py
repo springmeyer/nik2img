@@ -156,10 +156,6 @@ parser.add_option('--fonts',
                   action='callback',
                   callback=make_list)
 
-parser.add_option('--mapnik-version', dest='mapnik_version',
-                  action='store', default=None,
-                  help='Use the mapnik2 python bindings if they exist', type='int')
-
 parser.add_option('--zip', dest='zip_compress',
                   action='store_true', default=False,
                   help='Apply zip compression to output image (and other files by same name)')
@@ -177,15 +173,12 @@ parser.add_option('--aspect-fix-mode', dest='aspect_fix_mode',
 if __name__ == '__main__':
     (options, args) = parser.parse_args()
     
-    # we're actually starting now so pull in mapnik
-    # this version adapter is a nasty hack to globally
-    # control usage of either mapnik or mapnik2
-    from mapnik_utils.version_adapter import Mapnik
+    import mapnik
     mapnik = Mapnik(options.mapnik_version)
     
     if options.scale_factor:
         if not mapnik.mapnik_version() >= 800:
-            parser.error('\nPassing a scale factor requires at least mapnik >= 0.8.0 (aka Mapnik2)\n')
+            parser.error('\nPassing a scale factor requires at least mapnik >= 2.0.0\n')
     
     if len(args) == 0:
         parser.error('\nPlease provide the path to a Mapnik xml or Cascadenik mml file\n')

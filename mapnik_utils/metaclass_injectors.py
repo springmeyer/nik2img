@@ -1,9 +1,7 @@
 import re
 import sys
 
-from mapnik_utils.version_adapter import Mapnik
-
-mapnik = Mapnik()
+import mapnik
 
 # mapnik_utils
 from mapnik_utils.projection import EasyProjection

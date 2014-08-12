@@ -1,6 +1,4 @@
-from mapnik_utils.version_adapter import Mapnik
-
-mapnik = Mapnik()
+import mapnik
 
 TRANSFORM_ERROR = 'Only Mapnik >= 0.6.0 supports projected transforms, see: http://trac.mapnik.org/ticket/117'
 

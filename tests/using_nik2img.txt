@@ -65,7 +65,7 @@ Render a Map from an XML string
 
 >>> from mapnik_utils.composer import Compose
 >>> xml_string = '''<?xml version="1.0" encoding="utf-8"?>
-... <Map bgcolor="#8cb6d3">
+... <Map background-color="#8cb6d3">
 ... <Style name="states_line">
 ... <Rule><LineSymbolizer /><PointSymbolizer /></Rule>
 ... </Style>

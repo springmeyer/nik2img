@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Map bgcolor="#8cb6d3">
+<Map background-color="#8cb6d3">
     <Stylesheet><![CDATA[
 
         #states

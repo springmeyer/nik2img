@@ -1,7 +1,5 @@
 import os
-from mapnik_utils.version_adapter import Mapnik
-
-mapnik = Mapnik()
+import mapnik
 
 valid_extensions = ['.ttf','.otf','.ttc','.pfa','.pfb','.ttc','.dfont']
 

@@ -4,10 +4,7 @@ import timeit
 import zipfile
 import tempfile
 from glob import glob
-
-from mapnik_utils.version_adapter import Mapnik
-
-mapnik = Mapnik()
+import mapnik
 
 from mapnik_utils.tools import call
 

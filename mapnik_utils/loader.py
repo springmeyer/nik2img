@@ -2,10 +2,7 @@ import os
 import sys
 import timeit
 
-from mapnik_utils.version_adapter import Mapnik
-
-mapnik = Mapnik()
-
+import mapnik
 
 class Load(object):
     def __init__(self,mapfile,variables={},output_dir=None,from_string=False,verbose=False):

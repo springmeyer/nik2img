@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-version = '0.8.0'
+version = '0.9.0'
 app = 'nik2img'
 description = 'A command line style renderer for the Mapnik C++/Python mapping toolkit'
 url = 'http://mapnik-utils.googlecode.com/'

@@ -1,12 +1,9 @@
-from mapnik_utils.version_adapter import Mapnik
-
-mapnik = Mapnik()
-
 import os
 import sys
 import platform
 from timeit import time
 from pdb import set_trace
+import mapnik
 
 # mapnik_utils
 from subprocess import Popen

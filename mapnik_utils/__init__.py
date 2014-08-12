@@ -1,0 +1,1 @@
+from mapnik_utils import metaclass_injectors
