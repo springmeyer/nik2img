@@ -174,7 +174,6 @@ if __name__ == '__main__':
     (options, args) = parser.parse_args()
     
     import mapnik
-    mapnik = Mapnik(options.mapnik_version)
     
     if options.scale_factor:
         if not mapnik.mapnik_version() >= 800:

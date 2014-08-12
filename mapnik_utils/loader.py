@@ -66,9 +66,9 @@ class Load(object):
 
     def load_xml(self,m):
         if self.from_string:
-            return mapnik.load_map_from_string(m,self.mapfile,self.verbose)
+            return mapnik.load_map_from_string(m,self.mapfile,True)
         else:
-            return mapnik.load_map(m,self.mapfile,self.verbose)
+            return mapnik.load_map(m,self.mapfile,True)
 
     def load_mml(self,m):
         import cascadenik
@@ -78,7 +78,7 @@ class Load(object):
                 from cascadenik import compile as _compile
                 compiled = '%s_compiled.xml' % os.path.splitext(self.mapfile)[0]
                 open(compiled, 'w').write(_compile(self.mapfile))
-                mapnik.load_map(m, compiled)
+                mapnik.load_map(m, compiled,True)
             elif major == 1:
                 cascadenik.load_map(m,self.mapfile,self.output_dir,verbose=self.verbose)
             elif major > 1:
@@ -88,7 +88,7 @@ class Load(object):
             compiled = os.path.join(self.output_dir,'%s_compiled.xml' % os.path.splitext(os.path.basename(self.mapfile))[0])
             output = _compile(self.mapfile)
             open(compiled, 'w').write(output)
-            mapnik.load_map(m, compiled)
+            mapnik.load_map(m, compiled,True)
 
     def load_py(self,m,map_variable='m'):
         """
