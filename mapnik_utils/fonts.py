@@ -7,7 +7,10 @@ class FontHandler(object):
     def __init__(self):
         self.added = []
         self.failed = []
-        self.fontdir = mapnik.fontscollectionpath
+        if hasattr(mapnik, 'fontscollectionpath'):
+            self.fontdir = mapnik.fontscollectionpath
+        else:
+            self.fontdir = mapnik.paths.fontscollectionpath
     
     @property
     def available(self):
